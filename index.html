@@ -20,10 +20,10 @@
     background:var(--card); border:1px solid var(--bd); border-radius:16px;
     padding:14px; box-shadow:0 8px 28px rgba(0,0,0,.35);
   }
-  /* Moldura do jogo: ajustada para 2:3 (largura:altura) */
+  /* Moldura do jogo: usa aspect-ratio para ficar grande e responsivo */
   .frame{
     width:100%;
-    aspect-ratio: 2 / 3;   /* não corta mais */
+    aspect-ratio: 1 / 1;          /* quadrado – combina com o Game Lab */
     background:#000; border-radius:12px; overflow:hidden;
   }
   .frame iframe{
@@ -32,17 +32,17 @@
   }
   .title{margin:10px 4px 0;font-weight:800}
   .placeholder{
-    width:100%; aspect-ratio: 2 / 3; display:grid; place-items:center;
+    width:100%; aspect-ratio: 1 / 1; display:grid; place-items:center;
     color:#bfc7ff; opacity:.9; border-radius:12px; border:1px dashed var(--bd);
     background:linear-gradient(180deg,#0f1530, #0b1024);
   }
 
-  /* MOBILE: card ocupa quase a tela toda */
+  /* MOBILE: card ocupa quase a tela toda (bem grande) */
   @media (max-width: 600px){
     .wrap{padding:12px}
     .grid{grid-template-columns: 1fr;}
     .card{padding:10px}
-    .frame, .placeholder{width:95vw; aspect-ratio:2/3; margin:0 auto;}
+    .frame, .placeholder{width:95vw; aspect-ratio:1/1; margin:0 auto;}
   }
 </style>
 </head>
