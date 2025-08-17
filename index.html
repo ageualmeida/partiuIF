@@ -1,71 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Games Partiu IF</title>
-<style>
-  :root{
-    --bg:#0a0a1a; --card:#11182b; --ink:#eaf2ff; --bd:rgba(255,255,255,.12);
-    --embed-shift:-30px; /* sobe o iframe pra esconder a barra cinza */
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font:16px system-ui}
-  .wrap{max-width:1100px;margin:0 auto;padding:20px}
-  .grid{
-    display:grid; gap:24px;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  }
-  .card{
-    background:var(--card); border:1px solid var(--bd); border-radius:16px;
-    padding:14px; box-shadow:0 8px 28px rgba(0,0,0,.35);
-  }
-  /* Moldura do jogo: usa aspect-ratio para ficar grande e responsivo */
-  .frame{
-    width:100%;
-    aspect-ratio: 1 / 1;          /* quadrado – combina com o Game Lab */
-    background:#000; border-radius:12px; overflow:hidden;
-  }
-  .frame iframe{
-    width:100%; height:calc(100% - var(--embed-shift));
-    border:0; display:block; margin-top:var(--embed-shift);
-  }
-  .title{margin:10px 4px 0;font-weight:800}
-  .placeholder{
-    width:100%; aspect-ratio: 1 / 1; display:grid; place-items:center;
-    color:#bfc7ff; opacity:.9; border-radius:12px; border:1px dashed var(--bd);
-    background:linear-gradient(180deg,#0f1530, #0b1024);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partiu IF — Projetos</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0f1a;
+      color: #fff;
+      text-align: center;
+    }
 
-  /* MOBILE: card ocupa quase a tela toda (bem grande) */
-  @media (max-width: 600px){
-    .wrap{padding:12px}
-    .grid{grid-template-columns: 1fr;}
-    .card{padding:10px}
-    .frame, .placeholder{width:95vw; aspect-ratio:1/1; margin:0 auto;}
-  }
-</style>
+    header {
+      padding: 40px 20px 20px 20px;
+      background: linear-gradient(135deg, #16222A, #3A6073);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #f9d342;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background-color: #1c1f2b;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      width: 320px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+
+    .card h3 {
+      margin: 12px 0;
+      font-size: 1.2rem;
+      color: #f9d342;
+    }
+
+    .placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 450px;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="grid">
+  <header>
+    <h1>Partiu IF — Recuperando Aprendizagens e Criando Futuros</h1>
+    <p>
+      A proposta do <strong>Partiu IF</strong> é ofertar aulas e atividades voltadas à recuperação de aprendizagens em 
+      <strong>Português, Matemática e Ciências da Natureza</strong>, iniciativa do 
+      <strong>Ministério da Educação (MEC)</strong> para recompor habilidades e competências essenciais, ampliando as oportunidades 
+      de acesso e permanência no Ensino Médio da Rede Federal de Educação Profissional, Científica e Tecnológica.
+      <br><br>
+      No <strong>Campus Gurupi</strong>, os estudantes da <strong>Turma 2 de Ciências da Natureza</strong> participam de um projeto especial: 
+      aprender ciência e matemática através da <strong>linguagem da programação</strong>, criando jogos e aplicativos no <strong>Code.org</strong>. 
+      Mais do que recuperar conteúdos, o projeto convida os jovens a desenvolver <strong>criatividade, raciocínio lógico e pensamento científico</strong> de forma divertida e interativa.
+    </p>
+  </header>
 
-      <!-- CARD 1 – JOGO -->
-      <article class="card">
-        <div class="frame">
-          <iframe
-            src="https://studio.code.org/projects/gamelab/0UvP_pCVDbcjhkSyHY5P4LxIYmLcK63SRhG_wqQsgug/embed"
-            allowfullscreen></iframe>
-        </div>
-        <div class="title">Mini Vertical Runner (Pac-Man 🍊)</div>
-      </article>
+  <div class="container">
+    <!-- Card do Jogo -->
+    <div class="card">
+      <iframe src="https://studio.code.org/projects/gamelab/0UvP_pCVDbcjhkSyHY5P4LxIYmLcK63SRhG_wqQsgug/embed"></iframe>
+      <h3>Mini Vertical Runner (Pac-Man 🍊)</h3>
+    </div>
 
-      <!-- CARD 2 – FUTUROS PROJETOS -->
-      <article class="card">
-        <div class="placeholder">🎮 Futuros Projetos</div>
-        <div class="title">Em breve…</div>
-      </article>
-
+    <!-- Card de Futuros Projetos -->
+    <div class="card">
+      <div class="placeholder">🚀 Futuros Projetos</div>
+      <h3>Em breve...</h3>
     </div>
   </div>
 </body>
