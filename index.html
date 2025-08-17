@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Games Partiu IF</title>
-  <style>
-    body {
-      background-color: #0a0a1a;
-      font-family: Arial, sans-serif;
-      color: white;
-      margin: 0;
-      padding: 40px;
-      display: flex;
-      justify-content: center;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Games Partiu IF</title>
+<style>
+  :root{
+    --bg:#0a0a1a; --card:#11182b; --ink:#eaf2ff; --bd:rgba(255,255,255,.12);
+    --embed-shift:-30px; /* sobe o iframe pra esconder a barra cinza */
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px system-ui}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  .grid{
+    display:grid; gap:24px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
+  .card{
+    background:var(--card); border:1px solid var(--bd); border-radius:16px;
+    padding:14px; box-shadow:0 8px 28px rgba(0,0,0,.35);
+  }
+  /* Moldura do jogo: usa aspect-ratio para ficar grande e responsivo */
+  .frame{
+    width:100%;
+    aspect-ratio: 1 / 1;          /* quadrado – combina com o Game Lab */
+    background:#000; border-radius:12px; overflow:hidden;
+  }
+  .frame iframe{
+    width:100%; height:calc(100% - var(--embed-shift));
+    border:0; display:block; margin-top:var(--embed-shift);
+  }
+  .title{margin:10px 4px 0;font-weight:800}
+  .placeholder{
+    width:100%; aspect-ratio: 1 / 1; display:grid; place-items:center;
+    color:#bfc7ff; opacity:.9; border-radius:12px; border:1px dashed var(--bd);
+    background:linear-gradient(180deg,#0f1530, #0b1024);
+  }
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      width: 100%;
-    }
-
-    .game-card {
-      background-color: #11182b;
-      border-radius: 12px;
-      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      text-align: center;
-    }
-
-    iframe {
-      width: 100%;
-      height: 480px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    h2 {
-      font-size: 22px;
-      color: #f1f1f1;
-      margin: 0;
-      padding: 160px 0;
-    }
-  </style>
+  /* MOBILE: card ocupa quase a tela toda (bem grande) */
+  @media (max-width: 600px){
+    .wrap{padding:12px}
+    .grid{grid-template-columns: 1fr;}
+    .card{padding:10px}
+    .frame, .placeholder{width:95vw; aspect-ratio:1/1; margin:0 auto;}
+  }
+</style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="grid">
 
-  <div class="container">
-    <!-- Card com jogo atual -->
-    <div class="game-card">
-      <iframe src="https://studio.code.org/projects/gamelab/0UvP_pCVDbcjhkSyHY5P4LxIYmLcK63SRhG_wqQsgug/embed"></iframe>
-      <p>Mini Vertical Runner (Pac-Man 🍊)</p>
-    </div>
+      <!-- CARD 1 – JOGO -->
+      <article class="card">
+        <div class="frame">
+          <iframe
+            src="https://studio.code.org/projects/gamelab/0UvP_pCVDbcjhkSyHY5P4LxIYmLcK63SRhG_wqQsgug/embed"
+            allowfullscreen></iframe>
+        </div>
+        <div class="title">Mini Vertical Runner (Pac-Man 🍊)</div>
+      </article>
 
-    <!-- Card vazio para futuros projetos -->
-    <div class="game-card">
-      <h2>🎮 Futuros Projetos</h2>
+      <!-- CARD 2 – FUTUROS PROJETOS -->
+      <article class="card">
+        <div class="placeholder">🎮 Futuros Projetos</div>
+        <div class="title">Em breve…</div>
+      </article>
+
     </div>
   </div>
-
 </body>
 </html>
